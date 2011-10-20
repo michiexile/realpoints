@@ -1,0 +1,62 @@
+% Compile with XeLaTeX
+\documentclass{amsart}
+
+\usepackage{fontenc}
+\usepackage{xunicode}
+\usepackage{bbold}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{url}
+
+\usepackage{tikz}
+
+\newcommand\mvj[1]{\textcolor{CadetBlue}{\textbf{MVJ: }#1}}
+\newcommand\jh[1]{\textcolor{ForestGreen}{\textbf{JH: }#1}}
+\newcommand\ps[1]{\textcolor{Violet}{\textbf{PS: }#1}}
+\newcommand\de[1]{\textcolor{RoyalPurple}{\textbf{DE: }#1}}
+
+\begin{document}
+
+\title{Point cloud topology on algebraic varieties}
+\author{Mikael Vejdemo-Johansson \and %
+  Jon Hauenstein \and %
+  Primoz Skraba \and %
+  David Eklund}
+
+\maketitle
+
+\begin{abstract}
+  We propose a method to compute betti numbers from algebraic varieties by numerical sampling and subsequent homology estimation with persistent homology techniques.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Persistent homology is cool. \cite{elz2000,c09TandD}
+
+
+\section{Constructing a point cloud}
+\label{sec:constr-point-cloud}
+
+\section{Analyzing the point cloud}
+\label{sec:analyz-point-cloud}
+
+
+\section{Experiments}
+\label{sec:experiments}
+
+We computed using \texttt{jPlex}. \cite{jplex08}
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+
+
+\bibliographystyle{apalike}
+\bibliography{realpoints}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
