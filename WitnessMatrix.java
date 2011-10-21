@@ -3,10 +3,10 @@ import java.io.*;
 import java.util.*;
 
 
-class WitnessHomology {
+class WitnessMatrix {
     public static void main(String[] args) throws Exception {
         if(args.length != 5) {
-            System.out.println("Usage: WitnessHomology data-file output-slug maxdim landmarkcount epsilon\n\nUse epsilon == 0 to use the computed Rmax instead.");
+            System.out.println("Usage: WitnessMatrix data-file output-slug maxdim landmarkcount epsilon\n\nUse epsilon == 0 to use the computed Rmax instead.");
             System.exit(-1);
         }
 
@@ -54,8 +54,8 @@ class WitnessHomology {
             i++;
         }
 
-        // Construct EuclideanArrayData
-        EuclideanArrayData ead = new EuclideanArrayData(data);
+        // Construct DistanceData
+        DistanceData ead = new DistanceData(data);
         System.out.print("Point count: ");
         System.out.println(ead.count());
 

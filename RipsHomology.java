@@ -3,22 +3,21 @@ import java.io.*;
 import java.util.*;
 
 
-class WitnessHomology {
+class RipsHomology {
     public static void main(String[] args) throws Exception {
-        if(args.length != 5) {
-            System.out.println("Usage: WitnessHomology data-file output-slug maxdim landmarkcount epsilon\n\nUse epsilon == 0 to use the computed Rmax instead.");
+        if(args.length != 4) {
+            System.out.println("Usage: RipsHomology data-file output-slug maxdim epsilon\n");
             System.exit(-1);
         }
 
         String filename, slug;
-        Integer maxdim, landmarkcount;
+        Integer maxdim;
         Double epsilon;
 
         filename = args[0];
         slug = args[1];
         maxdim = Integer.parseInt(args[2]);
-        landmarkcount = Integer.parseInt(args[3]);
-        epsilon = Double.parseDouble(args[4]);
+        epsilon = Double.parseDouble(args[3]);
 
         // Read in dataset
         File datafile = null;
@@ -60,17 +59,9 @@ class WitnessHomology {
         System.out.println(ead.count());
 
         // Construct WitnessComplex
-        int[] lms = WitnessStream.makeMaxMinLandmarks(ead, landmarkcount);
-        double rmax = WitnessStream.estimateRmax(ead, lms);
-        System.out.print("Estimated Rmax: ");
-        System.out.println(rmax);
-        WitnessStream rips;
-        if(epsilon == 0)
-            rips = Plex.WitnessStream(0.0001, maxdim, rmax, lms, ead);
-        else
-            rips = Plex.WitnessStream(0.0001, maxdim, epsilon, lms, ead);
+        RipsStream rips = Plex.RipsStream(0.0001, maxdim, epsilon, ead);
 
-        System.out.print("Witness complex of size: ");
+        System.out.print("Rips complex of size: ");
         System.out.println(rips.size());
 
         // Compute persistent homology
